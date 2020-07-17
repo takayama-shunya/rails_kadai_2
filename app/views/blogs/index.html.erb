@@ -1,0 +1,20 @@
+<p><%= notice %></p>
+<h2>投稿一覧</h2>
+<div>
+  <table>
+    <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= image_tag blog.image.url %></td>
+      <td><%= blog.content %></td>
+      <td><%= l blog.created_at %></td> 
+      <!-- ユーザー情報追加 <td><%= %></th> -->
+      <td><%= link_to '詳細', blog_path(blog.id) %></td>
+      <td><%= link_to '編集', edit_blog_path(blog.id) %></td>
+      <td><%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '削除して良いですか？' } %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to "投稿作成", new_blog_path %>
+

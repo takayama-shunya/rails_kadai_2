@@ -1,0 +1,7 @@
+<h2>詳細</h2>
+<!-- ユーザー情報追加 <%= %>-->
+<p>画像：<br><%= image_tag(@blog.image.url) %></p>
+<p>内容：<br><%= @blog.content %></p>
+
+<%= link_to '編集', edit_blog_path(@blog.id) %>
+<%= link_to '戻る', blogs_path %>
