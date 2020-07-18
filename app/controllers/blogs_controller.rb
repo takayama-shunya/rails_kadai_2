@@ -48,12 +48,13 @@ class BlogsController < ApplicationController
 
   def confirm
     @blog = Blog.new(blog_params)
+    @blog.id = params[:id]
     render :new if @blog.invalid?
   end
 
   private
   def blog_params
-    params.require(:blog).permit(:image, :image_cache, :content)
+    params.require(:blog).permit(:id, :image, :image_cache, :content, :remove_image)
   end
 
   def set_blog

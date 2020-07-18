@@ -4,7 +4,7 @@
   <table>
     <% @blogs.each do |blog| %>
     <tr>
-      <td><%= image_tag blog.image.url %></td>
+      <td><%= image_tag(blog.image.url) if blog.image? %></td>
       <td><%= blog.content %></td>
       <td><%= l blog.created_at %></td> 
       <!-- ユーザー情報追加 <td><%= %></th> -->
@@ -15,6 +15,7 @@
     <% end %>
   </table>
 </div>
+
 
 <%= link_to "投稿作成", new_blog_path %>
 

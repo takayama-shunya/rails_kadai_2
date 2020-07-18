@@ -1,5 +1,5 @@
 <h2>以下の内容で送信して良いですか？</h2>
-<%= form_with(model:@blog, url:blogs_path, local:true) do |form| %>
+<%= form_with(model:@blog, url:confirm_new_or_edit, method:confirm_form_method, local:true) do |form| %>
   <p>画像：<br><%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %></p>
   <%= form.hidden_field :image_cache %>
   <%= form.hidden_field :content %>
