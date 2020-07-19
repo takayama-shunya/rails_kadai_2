@@ -10,6 +10,33 @@
   </head>
 
   <body>
+    <header class="header">
+      <% if logged_in? %>
+      <ul>
+        <%= link_to user_path(current_user.id) do %>
+          <li class="header_link">プロフィール</li>
+        <% end %>
+        <%= link_to session_path(current_user.id), method: :delete do %>
+          <li class="header_link">ログアウト</li>
+        <% end %>
+      </ul>
+      <% else %>
+      <ul>
+        <%= link_to new_user_path do %>
+          <li class="header_link">アカウント作成</li>
+        <% end %>
+        <%= link_to new_session_path do %>
+          <li class="header_link">ログイン</li>
+        <% end %>
+      </ul>
+      <% end %>
+    </header>
+      <% flash.each do |key,value| %>
+        <%= content_tag(:div,value,class:"#{key}") %>
+      <% end %>
     <%= yield %>
+    <footer class="footer">
+    </footer>
+
   </body>
 </html>

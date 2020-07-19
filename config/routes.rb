@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  #root to: 'session#new' 
+  root to: 'sessions#new' 
 
   resources :blogs do
     collection do
@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create, :show, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
 end
