@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  skip_before_action :login_check_user
   before_action :set_user, only: [:show, :destroy]
 
   def new
@@ -26,7 +27,8 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation,
+                                 :aicon, :aicon_cache)
   end
 
   def set_user

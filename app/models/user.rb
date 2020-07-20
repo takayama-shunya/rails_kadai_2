@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+
+  mount_uploader :aicon, ImageUploader
   
   before_validation { email.downcase! }
 
@@ -8,5 +10,7 @@ class User < ApplicationRecord
   
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+
+  has_many :blogs, dependent: :destroy
 
 end

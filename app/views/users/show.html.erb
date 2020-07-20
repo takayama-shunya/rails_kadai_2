@@ -1,5 +1,6 @@
 <h2>詳細</h2>
-<p>名前：<%= @user.name %></P>
+<p>名前：<%= @user.name %> 
+   画像：<%= image_tag(@user.aicon.thumb.url) if @user.aicon? %></P>
 <p>アドレス：<%= @user.email %></p>
 <p><%= link_to 'アカウント削除', user_path, method: :delete, data: { confirm: '削除して良いですか？' } %></p>
 <p><%= link_to '一覧ページ', blogs_path %></p>

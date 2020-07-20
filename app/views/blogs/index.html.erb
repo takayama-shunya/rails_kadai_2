@@ -4,10 +4,17 @@
   <table>
     <% @blogs.each do |blog| %>
     <tr>
+      <td><%= image_tag(blog.user.aicon.thumb.url) if blog.user.aicon? %></td>
+      <td><%= blog.user.name %></td>
+    </tr>
+    <tr>
       <td><%= image_tag(blog.image.url) if blog.image? %></td>
+    </tr>
+    <tr>
       <td><%= blog.content %></td>
-      <td><%= l blog.created_at %></td> 
-      <!-- ユーザー情報追加 <td><%= %></th> -->
+    </tr>
+    <tr>
+      <td><%= l blog.created_at %></td>
       <td><%= link_to '詳細', blog_path(blog.id) %></td>
       <td><%= link_to '編集', edit_blog_path(blog.id) %></td>
       <td><%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '削除して良いですか？' } %></td>
