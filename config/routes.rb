@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :pictures
   root to: 'sessions#new' 
 
   resources :blogs do

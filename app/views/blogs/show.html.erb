@@ -1,7 +1,6 @@
 <h2>詳細</h2>
 <p>名前：<%= @blog.user.name %> 
    画像：<%= image_tag(@blog.user.aicon.thumb.url) if @blog.user.aicon? %></P>
-<p>画像：<br><%= image_tag(@blog.image.url) if @blog.image? %></p>
 <p>内容：<br><%= @blog.content %></p>
 
 <%= link_to '編集', edit_blog_path(@blog.id) %>
