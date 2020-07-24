@@ -1,15 +1,206 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+*= require bootstrap/dist/css/bootstrap.min
+*= require_tree .
+*= require_self
+*/
+ 
+html {
+  font-family: "メイリオ","Century";
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: 10;
+  background-color: rgb(177, 231, 245);
+  height: 5rem;
+  width: 100%;
+}
+
+.crearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.header li,.footer li {
+  list-style: none;
+  float: left;
+  line-height: 5rem;
+  text-align: center;
+  color: darkslategray;
+}
+
+.header-link,.footer-link {
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 25%;
+}
+
+.header-link:hover,.footer-link:hover {
+  background-color: rgb(145, 225, 245);
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  z-index: 10;
+  background-color: rgb(177, 231, 245);
+  height: 5rem;
+  width: 100%;
+}
+
+.information {
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: darkred;
+}
+
+.login_title {
+  text-align: center;
+  padding: 15px 0;
+  color: rgb(61, 42, 63);
+}
+
+.login_title h3 {
+  font-size: 3rem;
+}
+
+.login-form {
+  margin: 0 auto;
+  width: 60%;
+  height: 350px;
+  border: solid 0.1px rgba(226, 223, 223, 0.856);
+  background-color: rgb(235, 235, 238);
+  text-align: center;
+  padding: 20px 20px 40px 20px;
+  border-radius: 30px;
+  margin-bottom: 90px;
+}
+
+.form-control {
+  background-color: white;
+  border-radius: 15px;
+  min-width: 80%;
+}
+
+.form-control::placeholder {
+  text-align: center;
+}
+
+.login-btn {
+ margin-top: 30px;
+}
+
+.btn-primary {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.main {
+  overflow: scroll;
+  margin: 0 auto;
+  width: 90%;
+  padding: 1rem 4rem 2rem 4rem;
+  height: 80%;
+}
+
+.user-create,.blog-create {
+  padding: 0.5rem;
+}
+
+.user-profile,.blog-show {
+  padding: 2rem;
+  font-size: 2.2rem;
+}
+
+#user-aicon {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 100%;
+  margin-left: 1rem;
+}
+
+#user-name,#user-eamil {
+  font-weight: bold;
+}
+
+.blog-title {
+  margin-bottom: 2.5rem;
+}
+
+.content {
+  border-radius: 15px;
+}
+
+.btn-back {
+  padding: 1rem;
+}
+
+.confirm-form {
+  padding-bottom: 1rem;
+}
+
+.confirm-title {
+  font-size: 2rem;
+}
+
+.blogs-index {
+  width: 560px;
+  padding: 2rem;
+  border: solid 0.05rem rgba(226, 223, 223, 0.856)
+}
+
+.blogs-index td {
+  padding: 1rem 0;
+}
+
+.user-aicon {
+  width: 70px;
+}
+
+.user-name {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.blog-content {
+  font-size: 2.5rem;
+}
+
+.blog-date {
+  width: 270px;
+}
+
+.data-at {
+  width: 90px;
+}
+
+.data-show {
+  text-align: left;
+}
+
+.date-edit {
+  text-align: center;
+}
+
+.date-delete {
+  text-align: left;
+}
+
+.border-bottom {
+  width: 530px;
+  border-bottom: solid 0.05rem rgba(226, 223, 223, 0.856);
+}
+

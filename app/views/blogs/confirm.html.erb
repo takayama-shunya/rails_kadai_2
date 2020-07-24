@@ -1,13 +1,22 @@
-<h2>以下の内容で送信して良いですか？</h2>
-<%= form_with(model:@blog, url:confirm_new_or_edit, method:confirm_form_method, local:true) do |form| %>
-  <p>画像：<br><%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %></p>
-  <%= form.hidden_field :image_cache %>
-  <%= form.hidden_field :content %>
-  <p>内容：<br><%= @blog.content %></p>
-  <%= form.submit  "投稿" %>
-<% end %>
-<%= form_with(model:@blog, url:new_blog_path, local:true, method:"get") do |form| %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.hidden_field :content %>
-  <%= form.submit "戻る", name: 'back' %>
-<% end %>
+<h3>以下の内容で送信して良いですか？</h3>
+<div class="confirm-form">
+  <%= form_with(model:@blog, url:confirm_new_or_edit, method:confirm_form_method, local:true) do |form| %>
+    <p class="confirm-title">画像：<br><%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %></p>
+    <%= form.hidden_field :image_cache %>
+    <div class="blog-create">
+      <% if action_name == 'edit' || action_name == 'confirm' %>
+        <p><%= form.check_box :remove_image %>画像削除</p>
+      <% end %>
+    </div>
+    <%= form.hidden_field :content %>
+    <p class="confirm-title">内容：<br><%= @blog.content %></p>
+    <%= form.submit "投稿", class:"btn btn-success" %>
+</div>
+<div class="confirm-form">
+  <% end %>
+  <%= form_with(model:@blog, url:new_blog_path, local:true, method:"get") do |form| %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.hidden_field :content %>
+      <%= form.submit "戻る", name: 'back', class:"btn btn-warning" %>
+  <% end %>
+</div>

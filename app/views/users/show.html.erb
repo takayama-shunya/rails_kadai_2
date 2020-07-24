@@ -1,6 +1,19 @@
-<h2>詳細</h2>
-<p>名前：<%= @user.name %> 
-   画像：<%= image_tag(@user.aicon.thumb.url) if @user.aicon? %></P>
-<p>アドレス：<%= @user.email %></p>
-<p><%= link_to 'アカウント削除', user_path, method: :delete, data: { confirm: '削除して良いですか？' } %></p>
-<p><%= link_to '一覧ページ', blogs_path %></p>
+<div class="profile-content">
+   <h2>プロフィール</h2>
+   <div class="user-profile" >
+      名前：<span id="user-name"><%= @user.name %></span>
+      <%= image_tag @user.aicon.thumb.url, id: "user-aicon" if @user.aicon? %>   
+   </div>
+   <div class="user-profile">
+      アドレス：<span id="user-email"><%= @user.email %></span>
+   </div>
+   <div class="user-profile">
+      <%= button_to user_path, method: :delete, class: "btn btn-danger", data: { confirm: '削除して良いですか？' } do %>
+         <span>アカウント削除</span>
+      <% end %>
+   </div>
+</div>
+
+<% unless logged_in? %>
+   <p class="information">※ログインして下さい</p>
+<% end %>

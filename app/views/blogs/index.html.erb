@@ -1,28 +1,52 @@
-<p><%= notice %></p>
 <h2>投稿一覧</h2>
-<div>
-  <table>
-    <% @blogs.each do |blog| %>
-    <tr>
-      <td><%= image_tag(blog.user.aicon.thumb.url) if blog.user.aicon? %></td>
-      <td><%= blog.user.name %></td>
-    </tr>
-    <tr>
-      <td><%= image_tag(blog.image.url) if blog.image? %></td>
-    </tr>
-    <tr>
-      <td><%= blog.content %></td>
-    </tr>
-    <tr>
-      <td><%= l blog.created_at %></td>
-      <td><%= link_to '詳細', blog_path(blog.id) %></td>
-      <td><%= link_to '編集', edit_blog_path(blog.id) %></td>
-      <td><%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '削除して良いですか？' } %></td>
-    </tr>
-    <% end %>
-  </table>
+<div class="blogs-index">
+  <% @blogs.each do |blog| %>
+    <table class="user-date">
+      <tr>
+        <td class="user-aicon"><%= image_tag blog.user.aicon.thumb.url, id:"user-aicon" if blog.user.aicon? %></td>
+        <td class="user-name"><%= blog.user.name %></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td><%= image_tag(blog.image.url) if blog.image? %></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td class="blog-content"><%= blog.content %></td>
+      </tr>
+    </table>
+    <table class="blog-date">
+      <tr>
+        <td class="data-at"><%= l blog.created_at %></td>
+        <td class="data-show">
+          <%= button_to blog_path(blog.id), method: :get, class:"btn btn-info" do %>
+           <span>詳細</span>
+          <% end %>
+        </td>
+        <td class="data-edit">
+        <% if current_user.id == blog.user.id %>
+          <%= button_to edit_blog_path(blog.id), method: :get, class:"btn btn-warning" do %>
+            <span>編集</span>
+          <% end %>
+        <% end %>
+        </td>
+        <td class="data-delete">
+        <% if current_user.id == blog.user.id %>
+          <%= button_to blog_path(blog.id), method: :delete, class:"btn btn-danger", 
+              data: { confirm: '削除して良いですか？' } do %>
+            <span>削除</span>
+          <% end %>
+        <% end %>
+        </td>
+      </tr>
+    </table>
+    <table class="border-bottom">
+      <tr><td></td></th>
+    </table>
+  <% end %>
 </div>
 
 
-<%= link_to "投稿作成", new_blog_path %>
 

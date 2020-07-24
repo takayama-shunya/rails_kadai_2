@@ -1,7 +1,17 @@
-<h2>詳細</h2>
-<p>名前：<%= @blog.user.name %> 
-   画像：<%= image_tag(@blog.user.aicon.thumb.url) if @blog.user.aicon? %></P>
-<p>内容：<br><%= @blog.content %></p>
+<h3>詳細</h3>
+<div class="blog-show">
+   名前：<span id="user-name"><%= @blog.user.name %></span>
+      <%= image_tag @blog.user.aicon.thumb.url, id:"user-aicon" if @blog.user.aicon? %></P>
+</div>
+<div class="blog-show">
+   <p>内容：<br><%= @blog.content %></p>
+</div>
+<div class="blog-show">
+   <p>画像：<br><%= image_tag(@blog.image.url) if @blog.image? %>
+</div>
+<div class="blog-show">
+<%= button_to edit_blog_path(@blog.id), method: :get, class:"btn btn-warning" do %>
+  <span>編集</span>
+<% end %>
+</div>
 
-<%= link_to '編集', edit_blog_path(@blog.id) %>
-<%= link_to '戻る', blogs_path %>

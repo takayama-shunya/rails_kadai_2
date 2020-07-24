@@ -11,20 +11,28 @@
     </div>
   <% end %>
 
-  <div class="blog_field">
-    <%= form.label :image %><br>
-    <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
-    <%= form.file_field :image %>
-    <p><%= form.check_box :remove_imag %>画像削除</p>
-    <%= form.hidden_field :image_cache %>
+  <div class="blog-field">
+    <div class="blog-create">
+      <%= form.label :image %><br>
+      <%= form.file_field :image %>
+      <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+    <div class="blog-create">
+      <% if action_name == 'edit' || action_name == 'confirm' %>
+        <p><%= form.check_box :remove_image %>画像削除</p>
+      <% end %>
+    </div>
   </div>
 
-  <div class="blog_content">
-    <%= form.label :content%><br>
-    <%= form.text_area :content, class: "content", size: "40x10", style: "font-size: 18px"  %>
+  <div class="blog-content">
+    <div class="blog-create">
+      <%= form.label :content%><br>
+      <%= form.text_area :content, class:"content", size:"40x10", style:"font-size: 18px"  %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit "投稿" %>
+  <div class="blog-create">
+    <%= form.submit "投稿", class:"btn btn-success" %>
   </div>
 <% end %>
