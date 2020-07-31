@@ -23,7 +23,6 @@
           お名前：<%= current_user.name %>さん
         </li>
       <% else %>
-      <ul>
         <%= link_to new_user_path do %>
           <li class="header-link">アカウント作成</li>
         <% end %>
@@ -49,6 +48,9 @@
         <% end %>
         <%= link_to blogs_path do %>
           <li class="footer-link">投稿一覧</li>
+        <% end %>
+        <%= link_to favorited_blog do %>
+          <li class="footer-link">お気に入り一覧</li>
         <% end %>
       </ul>
       <% end %>

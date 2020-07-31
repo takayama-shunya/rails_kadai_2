@@ -29,6 +29,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
 
   def edit
@@ -63,7 +64,7 @@ class BlogsController < ApplicationController
   end
 
   def set_blog_user
-    if current_user.id == @blog.user.id
+    if current_user.id == @blog.user_id
     else
       redirect_to blogs_path, notice: "権限がありません" 
     end

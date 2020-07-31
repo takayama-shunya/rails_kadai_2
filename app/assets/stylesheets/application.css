@@ -125,7 +125,7 @@ body {
   font-size: 2.2rem;
 }
 
-#user-aicon {
+#user-icon {
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 100%;
@@ -166,7 +166,7 @@ body {
   padding: 1rem 0;
 }
 
-.user-aicon {
+.user-icon {
   width: 70px;
 }
 
@@ -180,27 +180,41 @@ body {
 }
 
 .blog-date {
-  width: 270px;
+  width: 530px;
+  border-bottom: solid 0.05rem rgba(226, 223, 223, 0.856);
 }
 
 .data-at {
   width: 90px;
 }
 
-.data-show {
+.data-btn {
+  width: 270px;
+}
+
+.data-btn li {
+  list-style: none;
+  float: left;
   text-align: left;
+  padding-left: 1rem;
 }
 
-.date-edit {
-  text-align: center;
+.data-favorite {
+  text-align: right;
 }
 
-.date-delete {
-  text-align: left;
+.favorite-delete {
+  background-color: springgreen;
+  border: solid 0.05rem rgb(7, 226, 116);
+  color : darkgreen;
 }
 
-.border-bottom {
-  width: 530px;
-  border-bottom: solid 0.05rem rgba(226, 223, 223, 0.856);
+.favorite-delete .glyphicon-ok {
+  font-weight: bold;
+}
+
+.favorite-create {
+  border: solid 0.05rem rgb(186, 189, 186);
+  color : rgb(175, 177, 175);
 }
 

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     end
     member do
       patch :confirm
+      get :favorited
     end
+    resource :favorites, only: [:create, :destroy]
   end
 
   resources :users 

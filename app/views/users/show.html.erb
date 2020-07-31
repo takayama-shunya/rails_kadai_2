@@ -2,7 +2,7 @@
    <h2>プロフィール</h2>
    <div class="user-profile" >
       名前：<span id="user-name"><%= @user.name %></span>
-      <%= image_tag @user.aicon.thumb.url, id: "user-aicon" if @user.aicon? %>   
+      <%= image_tag @user.icon.thumb.url, id: "user-icon" if @user.icon? %>   
    </div>
    <div class="user-profile">
       アドレス：<span id="user-email"><%= @user.email %></span>
