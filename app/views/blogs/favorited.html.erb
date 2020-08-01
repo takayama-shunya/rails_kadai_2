@@ -1,0 +1,25 @@
+<h2>お気に入り一覧</h2>
+<div class="blogs-index">
+  <% @favorited.each do |blog| %>
+    <table class="user-date">
+      <tr>
+        <td class="user-icon"><%= image_tag blog.user_icon.thumb.url, id:"user-icon" if blog.user_icon.present? %></td>
+        <td class="user-name"><%= blog.user_name %></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td><%= image_tag(blog.image.url) if blog.image? %></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td class="blog-content"><%= blog.content %></td>
+      </tr>
+    </table>
+    <table class="blog-date">
+      <tr>
+        <td class="data-at"><%= l blog.created_at %></td>
+    </table>
+  <% end %>
+</div>

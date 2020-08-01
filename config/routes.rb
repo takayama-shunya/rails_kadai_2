@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   resources :users 
   resources :sessions, only: [:new, :create, :destroy]
 
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
 end

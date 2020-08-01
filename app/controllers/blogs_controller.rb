@@ -21,6 +21,7 @@ class BlogsController < ApplicationController
       render :new
     else
       if @blog.save
+        BlogMailer.blog_mail(@blog).deliver
         redirect_to blogs_path, notice: "投稿しました"
       else
         render :new
@@ -52,6 +53,10 @@ class BlogsController < ApplicationController
     @blog = current_user.blogs.build(blog_params)
     @blog.id = params[:id]
     render :new if @blog.invalid?
+  end
+
+  def favorited
+    @favorited = current_user.favorite_blogs
   end
 
   private

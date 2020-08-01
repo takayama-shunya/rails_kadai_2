@@ -1,0 +1,11 @@
+<h3>ブログ投稿完了しました！</h3>
+<div class="blog-show">
+   <p>名前：<span id="user-name"><%= @post.user_name %></span>
+      <%= image_tag @post.user_icon.thumb.url, id:"user-icon" if @post.user_icon.present? %></P>
+</div>
+<div class="blog-show">
+   <p>内容：<br><%= @post.content %></p>
+</div>
+<div class="blog-show">
+   <p>画像：<br><%= image_tag(@post.image.url) if @post.image? %>
+</div>

@@ -49,7 +49,7 @@
         <%= link_to blogs_path do %>
           <li class="footer-link">投稿一覧</li>
         <% end %>
-        <%= link_to favorited_blog do %>
+        <%= link_to favorited_blog_path(current_user.id) do %>
           <li class="footer-link">お気に入り一覧</li>
         <% end %>
       </ul>

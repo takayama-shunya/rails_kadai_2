@@ -1,6 +1,6 @@
 <h3>詳細</h3>
 <div class="blog-show">
-   名前：<span id="user-name"><%= @blog.user_name %></span>
+   <p>名前：<span id="user-name"><%= @blog.user_name %></span>
       <%= image_tag @blog.user_icon.thumb.url, id:"user-icon" if @blog.user_icon.present? %></P>
 </div>
 <div class="blog-show">
