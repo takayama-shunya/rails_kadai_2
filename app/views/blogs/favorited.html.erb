@@ -1,25 +1,38 @@
-<h2>お気に入り一覧</h2>
-<div class="blogs-index">
-  <% @favorited.each do |blog| %>
-    <table class="user-date">
-      <tr>
-        <td class="user-icon"><%= image_tag blog.user_icon.thumb.url, id:"user-icon" if blog.user_icon.present? %></td>
-        <td class="user-name"><%= blog.user_name %></td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td><%= image_tag(blog.image.url) if blog.image? %></td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td class="blog-content"><%= blog.content %></td>
-      </tr>
-    </table>
-    <table class="blog-date">
-      <tr>
-        <td class="data-at"><%= l blog.created_at %></td>
-    </table>
-  <% end %>
+<h3>お気に入り一覧</h3>
+<div class="container">
+  <div class="row">
+    <% @favorited.each do |blog| %>
+    <div class="col-md-6">
+      <table class="user-date">
+        <tr>
+          <td class="user-icon"><%= image_tag blog.user_icon.thumb.url, id:"user-icon" if blog.user_icon.present? %></td>
+          <td class="user-name"><%= blog.user_name %></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td class="blog-image"><%= image_tag(blog.image.url) if blog.image? %></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td class="blog-content"><%= blog.content %></td>
+        </tr>
+      </table>
+      <table class="blog-date">
+        <tr>
+          <td class="data-at"><%= l blog.created_at %></td>
+          <td class="data-btn">
+            <ul>
+              <li>
+                <%= button_to blog_path(blog.id), method: :get, class:"btn btn-info" do %>
+                  <span>詳細</span>
+                <% end %>
+              </li>
+            </ul>
+          </td>
+      </table>
+    </div>
+    <% end %>
+  </div>
 </div>

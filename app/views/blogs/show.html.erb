@@ -9,9 +9,11 @@
 <div class="blog-show">
    <p>画像：<br><%= image_tag(@blog.image.url) if @blog.image? %>
 </div>
-<div class="blog-show">
-<%= button_to edit_blog_path(@blog.id), method: :get, class:"btn btn-warning" do %>
-  <span>編集</span>
+<% if current_user.id == @blog.user_id %>
+   <div class="blog-show">
+      <%= button_to edit_blog_path(@blog.id), method: :get, class:"btn btn-warning" do %>
+         <span>編集</span>
+      <% end %>
+   </div>
 <% end %>
-</div>
 

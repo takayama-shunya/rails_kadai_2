@@ -73,20 +73,30 @@ body {
   color: rgb(61, 42, 63);
 }
 
-.login_title h3 {
+.login_title h2 {
   font-size: 2.5rem;
 }
 
 .login-form {
   margin: 0 auto;
-  width: 45%;
+  width: 350px;
   height: 350px;
   border: solid 0.1px rgba(226, 223, 223, 0.856);
   background-color: rgb(235, 235, 238);
   text-align: center;
   padding: 20px 20px 40px 20px;
   border-radius: 30px;
-  margin-bottom: 90px;
+}
+
+h3 {
+  width: 200px;
+  text-align: center;
+  background-color: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  border-radius: 30px;
+  padding: 0.3rem;
+
 }
 
 .form-control {
@@ -156,14 +166,25 @@ body {
   font-size: 2rem;
 }
 
-.blogs-index {
-  width: 560px;
-  padding: 2rem;
-  border: solid 0.05rem rgba(226, 223, 223, 0.856)
+.col-md-6 {
+  border: solid 0.05rem rgba(226, 223, 223, 0.856);
 }
 
-.blogs-index td {
+.col-md-6 table {
+  width: 560px;
+}
+
+.col-md-6 td {
   padding: 1rem 0;
+}
+
+.blog-image {
+  height: 310px;
+  border-top: solid 0.025rem rgba(226, 223, 223, 0.856);
+  border-bottom: solid 0.025rem rgba(226, 223, 223, 0.856);
+  border-collapse: separate;
+  empty-cells: show;
+  text-align: center;
 }
 
 .user-icon {
@@ -175,13 +196,12 @@ body {
   font-weight: bold;
 }
 
-.blog-content {
-  font-size: 2.5rem;
+.blog-label {
+  font-size: 2rem;
 }
 
 .blog-date {
   width: 530px;
-  border-bottom: solid 0.05rem rgba(226, 223, 223, 0.856);
 }
 
 .data-at {

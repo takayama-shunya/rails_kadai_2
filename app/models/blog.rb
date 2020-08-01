@@ -2,7 +2,7 @@ class Blog < ApplicationRecord
   
   mount_uploader :image, ImageUploader
   
-  validates :content, presence: { message: "コメントがありません" }
+  validates :content, presence: true
 
   belongs_to :user
   delegate :name, :icon, :id, to: :user, prefix: true
