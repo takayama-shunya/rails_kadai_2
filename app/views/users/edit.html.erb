@@ -1,2 +1,40 @@
-<h3>アカウント情報編集</h3>
-<%= render "form" %>
+<h3>アカウント編集</h3>
+<%= form_with(model:@user, local:true) do |form| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @user.errors.count %>件のエラーがあります</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="user-create">
+    <%= form.label :name %><br>
+    <%= form.text_field :name, size: 30 %><br>
+  </div>
+  <div class="user-create">
+    <%= form.label :email %><br>
+    <%= form.email_field :email, size: 30 %><br>
+  </div>
+  <div class="user-create">
+    <%= form.label :password %><br>
+    <%= form.password_field :password, size: 30 %><br>
+  </div>
+  <div class="user-create">
+    <%= form.label :password_confirmation %><br>
+    <%= form.password_field :password_confirmation, size: 30 %><br>
+  </div>
+  <div class="user-create">
+    <%= form.label :icon %><br>
+    <%= form.file_field :icon %><br>
+    <%= form.hidden_field :icon_cache %>
+  </div>
+  <div class="user-create">
+    <%= form.submit "アカウント編集", class: "btn btn-success",
+        data: { confirm: 'こちらの編集内容で良いですか？' }  %>
+  </div>
+<% end %>

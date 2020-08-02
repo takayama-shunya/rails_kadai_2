@@ -238,3 +238,7 @@ h3 {
   color : rgb(175, 177, 175);
 }
 
+#error_explanation {
+  color: red;
+}
+

@@ -1,4 +1,4 @@
-<h3>以下の内容で送信して良いですか？</h3>
+<h2>以下の内容で送信して良いですか？</h2>
 <div class="confirm-form">
   <%= form_with(model:@blog, url:confirm_new_or_edit, method:confirm_form_method, local:true) do |form| %>
     <p class="confirm-title">画像：<br><%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %></p>
