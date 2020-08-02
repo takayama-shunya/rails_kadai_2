@@ -1,8 +1,8 @@
 /*
 *= require bootstrap/dist/css/bootstrap.min
-*= require_tree .
-*= require_self
 */
+
+@import "bootstrap"
  
 html {
   font-family: "メイリオ","Century";
