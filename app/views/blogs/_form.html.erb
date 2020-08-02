@@ -28,11 +28,8 @@
   <div class="blog-content">
     <div class="blog-create">
       <%= form.label :content, class:"blog-label" %><br>
-      <%= form.text_area :content, class:"content", size:"40x10", style:"font-size: 18px"  %>
+      <%= form.text_area :content, class:"content", size:"40x10", style:"font-size: 18px"  %><br>
+      <%= form.submit "投稿", class: "btn btn-success" %>
     </div>
-  </div>
-
-  <div class="blog-create">
-    <%= form.submit "投稿", class:"btn btn-success" %>
   </div>
 <% end %>
