@@ -23,6 +23,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
   gem 'faker'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do
