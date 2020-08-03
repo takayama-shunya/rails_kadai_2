@@ -17,19 +17,14 @@ class BlogsController < ApplicationController
 
   def create
     @blog = current_user.blogs.build(blog_params)
-    if params[:back]
-      render :new
+    if @blog.save
+      redirect_to blogs_path, notice: "投稿しました"
     else
-      if @blog.save
-        redirect_to blogs_path, notice: "投稿しました"
-      else
-        render :new
-      end
+      render :new
     end
   end
 
   def show
-    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
 
   def edit

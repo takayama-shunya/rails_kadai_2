@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   skip_before_action :login_check_user, only: [:new, :create, :show]
   before_action :set_user, only: [:show, :destroy, :edit, :update]
+  before_action :set_current_user, only: [:show, :destroy, :edit, :update]
 
   def new
     @user = User.new
@@ -46,6 +47,14 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_current_user
+    if current_user.id == @user.id
+    else
+      redirect_to user_path(current_user.id), notice: "権限がありません" 
+    end
+
   end
 
 end
