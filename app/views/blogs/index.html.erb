@@ -38,14 +38,14 @@
               </li>
               <li>
                 <% if current_user.id == blog.user_id %>
-                  <%= button_to blog_path(blog.id), method: :delete, class:"btn btn-danger", 
+                  <%= button_to blog_path(blog.id), method: :delete, class:"btn btn-danger",
                       data: { confirm: '削除して良いですか？' } do %>
                     <span>削除</span>
                   <% end %>
                 <% end %>
               </li>
             </ul>
-          </td>          
+          </td>
           <td class="data-favorite">
           <% unless current_user.id == blog.user_id %>
             <div id="favorites_buttons_<%= blog.id %>">
@@ -59,6 +59,3 @@
     <% end %>
   </div>
 </div>
-
-
-

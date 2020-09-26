@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :favorited
     end
     resource :favorites, only: [:create, :destroy]
+    resources :comments
   end
 
   resources :users 

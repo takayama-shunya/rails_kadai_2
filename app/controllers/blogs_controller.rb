@@ -25,6 +25,8 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @comments = @blog.comments
+    @comment = @blog.comments.build
   end
 
   def edit
