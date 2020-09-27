@@ -15,8 +15,13 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users 
+  resources :users
+  resources :relationships, only: [:create, :destroy] 
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :conversions do
+    resources :messages 
+  end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
